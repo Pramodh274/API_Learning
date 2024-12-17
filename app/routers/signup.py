@@ -8,7 +8,7 @@ router = APIRouter()
 users_db = {}
 
 
-@router.post("/signup", status_code=201)
+@router.post("/signup", tags=["Account"], status_code=201)
 def signup(user: SignupRequest):
     if user.email in users_db:
         raise HTTPException(status_code=400, detail="Email already registered.")
